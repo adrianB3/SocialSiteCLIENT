@@ -1,17 +1,7 @@
-
 <!-- home page html -->
-
-<div class="text-center">
-  <h1>Find your friends</h1>
-  <p>Come on in... All you need to do is sign up!</p>
-  <div class="text-center">
-    <button class="btn btn-primary btn-lg" (click)="registerToggle()">Register</button>
-    <button class="btn btn-info btn-lg">Learn More</button>
-  </div>
+<div *ngIf="!registerMode" class="container card mt-3 m-auto">
+  <h2 class="text-warning text-center">You need to <button class="btn btn-outline-success" (click)="registerToggle()">register</button> to use the app!</h2>
 </div>
-<br>
-<div *ngIf="registerMode" class="container text-center">
-  <div class="col-md-4 col-md-offset-4">
-    <app-register></app-register>
-  </div>
+<div *ngIf="registerMode" class="container">
+  <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
 </div>

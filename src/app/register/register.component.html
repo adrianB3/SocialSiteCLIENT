@@ -1,20 +1,30 @@
-<!-- register page html -->
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6 col-sm-8 mx-auto">
+      <div class="card border-none">
+        <div class="card-body">
+          <div class="mt-2 text-center">
+            <h2>Create Your Account</h2>
+          </div>
 
-<form #registerForm="ngForm" (ngSubmit)="register()">
+          <div class="mt-4">
+            <form #registerForm="ngForm" (ngSubmit)="register()">
+              <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="username" autofocus required [(ngModel)]="model.username">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="password" required [(ngModel)]="model.password">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="confirm-password" value="" placeholder="Confirm password">
+              </div>
 
-  <h2 class="text-center text-primary">Sign Up</h2>
-
-  <hr>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Username" name="username" required [(ngModel)]="model.username">
+              <button type="submit" class="btn btn-success btn-block">Create Account</button>
+              <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <input type="password" class="form-control" placeholder="Password" name="password" required [(ngModel)]="model.password">
-  </div>
-
-  <div class="form-group text-center">
-    <button class="btn btn-success" type="submit">Register</button>
-    <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
-  </div>
-</form>
+</div>
