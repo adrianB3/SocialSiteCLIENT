@@ -11,6 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import {AlertifyService} from './_services/alertify.service';
 import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
+import { FeedComponent } from './feed/feed.component';
+import { MessagesComponent } from './messages/messages.component';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './routes';
+import {AuthGuard} from './_gurads/auth.guard';
 
 
 @NgModule({
@@ -18,18 +24,23 @@ import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    FeedComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    CollapseModule
+    CollapseModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AuthService,
-    AlertifyService
+    AlertifyService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
