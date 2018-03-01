@@ -17,6 +17,10 @@ import { MessagesComponent } from './messages/messages.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import {AuthGuard} from './_gurads/auth.guard';
+import {UserService} from './_services/user.service';
+import { MemberCardComponent } from './member-card/member-card.component';
+import {AuthModule} from './auth/auth.module';
+import { MemberDetailComponent } from './member-detail/member-detail.component';
 
 
 @NgModule({
@@ -27,7 +31,9 @@ import {AuthGuard} from './_gurads/auth.guard';
     RegisterComponent,
     ProfileComponent,
     FeedComponent,
-    MessagesComponent
+    MessagesComponent,
+    MemberCardComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -35,12 +41,14 @@ import {AuthGuard} from './_gurads/auth.guard';
     FormsModule,
     BsDropdownModule.forRoot(),
     CollapseModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AuthModule
   ],
   providers: [
     AuthService,
     AlertifyService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

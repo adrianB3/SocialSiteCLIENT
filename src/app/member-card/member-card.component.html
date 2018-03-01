@@ -1,0 +1,31 @@
+ <div class="card mt-4">
+    <img class="card-img-top" src="{{user.photoUrl}}" alt="{{user.knownAs}}">
+    <div class="card-block">
+      <figure class="profile">
+        <img src="{{user.photoUrl}}" class="profile-avatar" alt="">
+      </figure>
+      <h4 class="card-title mt-3"><i class="fa fa-user"></i> {{user.username}}</h4>
+      <div class="meta">
+        <a>Friends</a>
+        <a>{{user.city}}</a>
+      </div>
+      <div class="card-text">
+        {{user.country}}
+      </div>
+      <small>Last updated 3 mins ago </small>
+    </div>
+    <div class="card-footer">
+      <ul class="list-inline member-icons animate text-center">
+        <li class="list-inline-item "><button class="btn btn-outline-info"><i class="fa fa-user"></i> Add</button></li>
+        <li class="list-inline-item "><button class="btn btn-outline-info"><i class="fa fa-heart"></i></button></li>
+        <li class="list-inline-item "><button class="btn btn-outline-info"><i class="fa fa-envelope"></i></button></li>
+        <hr>
+        <li class="list-inline-item " [routerLink]="['/feed/', user.id]">
+          <button class="btn btn-outline-info"><i class="fa fa-user"></i> View Profile</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+

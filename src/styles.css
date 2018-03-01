@@ -2,3 +2,6 @@
 body {
   background-image: url("assets/Images/reg_back.jpg");
 }
+body::-webkit-scrollbar {
+  display: none;
+}
