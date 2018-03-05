@@ -42,7 +42,7 @@
       <li class="nav-item dropdown" dropdown>
         <a class="nav-link dropdown-toggle" dropdownToggle>Welcome {{authService.decodedtoken?.unique_name | titlecase}}</a>
         <div class="dropdown-menu" *dropdownMenu>
-          <a class="dropdown-item" ><i class="fa fa-user"></i> Edit Profile</a>
+          <a class="dropdown-item" [routerLink]="['/feed/edit']"><i class="fa fa-user"></i> Edit Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
