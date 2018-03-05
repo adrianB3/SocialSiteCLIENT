@@ -10,7 +10,7 @@ import {HttpModule} from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import {AlertifyService} from './_services/alertify.service';
-import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
+import {BsDropdownModule, CollapseModule, TabsModule} from 'ngx-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -21,6 +21,9 @@ import {UserService} from './_services/user.service';
 import { MemberCardComponent } from './member-card/member-card.component';
 import {AuthModule} from './auth/auth.module';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
+import {MemberDetailResolver} from './_resolvers/member-detail.resolver';
+import {MemberListResolver} from './_resolvers/member-list.resolver';
+import {NgxGalleryModule} from 'ngx-gallery';
 
 
 @NgModule({
@@ -42,13 +45,17 @@ import { MemberDetailComponent } from './member-detail/member-detail.component';
     BsDropdownModule.forRoot(),
     CollapseModule,
     RouterModule.forRoot(appRoutes),
-    AuthModule
+    AuthModule,
+    TabsModule.forRoot(),
+    NgxGalleryModule
   ],
   providers: [
     AuthService,
     AlertifyService,
     AuthGuard,
-    UserService
+    UserService,
+    MemberDetailResolver,
+    MemberListResolver
   ],
   bootstrap: [AppComponent]
 })

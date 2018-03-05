@@ -5,6 +5,8 @@ import {MessagesComponent} from './messages/messages.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthGuard} from './_gurads/auth.guard';
 import {MemberDetailComponent} from './member-detail/member-detail.component';
+import {MemberDetailResolver} from './_resolvers/member-detail.resolver';
+import {MemberListResolver} from './_resolvers/member-list.resolver';
 
 export const appRoutes: Routes = [
   {path: '', redirectTo: 'feed', pathMatch: 'full'},
@@ -14,8 +16,8 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     runGuardsAndResolvers: 'always',
     children: [
-      {path: 'feed', component: FeedComponent},
-      {path: 'feed/:id', component: MemberDetailComponent},
+      {path: 'feed', component: FeedComponent, resolve: {users: MemberListResolver}},
+      {path: 'feed/:id', component: MemberDetailComponent, resolve: {user: MemberDetailResolver}},
       {path: 'messages', component: MessagesComponent},
       {path: 'profile', component: ProfileComponent}
     ]
